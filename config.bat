@@ -17,7 +17,7 @@ git config --global user.name "Robert Woodward"
 git config --global user.email r.i.woodward@gmail.com
 
 rem Default text-based files to Sublime Text
-FTYPE SublimeTextFile=C:\Dropbox\Software\SublimeText\sublime_text.exe "%1"
+FTYPE SublimeTextFile=C:\Dropbox\Software\SublimeText\sublime_text.exe "%%1"
 ASSOC .=SublimeTextFile
 ASSOC .txt=SublimeTextFile
 ASSOC .dat=SublimeTextFile
@@ -32,7 +32,7 @@ ASSOC .cfg=SublimeTextFile
 ASSOC .ahk=SublimeTextFile
 
 rem Default PDFs to SumatraPDF
-FTYPE PDFFile=C:\Dropbox\Software\SumatraPDF\SumatraPDF.exe "%1"
+FTYPE PDFFile=C:\Dropbox\Software\SumatraPDF\SumatraPDF.exe "%%1"
 ASSOC .pdf=PDFFile
 
 rem Always show hidden files and file extensions
