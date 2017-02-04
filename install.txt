@@ -1,38 +1,42 @@
 # RIW install script for new PCs using Chocolatey and BoxStarter
 
 # Adapted from: http://boxstarter.org/weblauncher
-# Manual installs required for: Dropbox, Spotify, Mendeley, Anaconda3
+# Manual installs required for: Dropbox, Spotify, Mendeley, Anaconda3, StrawberryPerl, MS ImageCompositeEditor, MS Office, Python Build Tools
 # No-install software in Dropbox: Cmder, SumatraPdf, SublimeText
 
 # Run BoxStarter from web using command line:
 # "START http://bit.ly/riw_boxstarter"
 
-# Main Software
 choco install chocolatey
+
+# Basic Software
 choco install firefox
 choco install googlechrome
 choco install adobereader
 choco install skype
 choco install teamviewer
+choco install 7zip.install
+
+# Media
 choco install gimp
-choco install inkscape
+choco install imagemagick.app
+choco install inkscape -version 0.91
+choco install picasa
+choco install vlc
+
+# Documents
 choco install miktex.install
 choco install texstudio
-choco install picasa
-
-# Basic Utils
-choco install vlc
-choco install 7zip.install
 choco install ghostscript.app
-choco install speccy
-choco install qttabbar
 
-# Dev Tools
-choco install winmerge
-choco install strawberryperl
-choco install imagemagick.app
+# Development
+choco install git --params "/GitAndUnixToolsOnPath /NoAutoCrlf"
 choco install hg
-choco install autohotkey
+choco install winmerge
 
 # Misc
 choco install silverlight
+choco install qttabbar
+choco install speccy
+choco install autohotkey
+choco install f.lux
