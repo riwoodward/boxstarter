@@ -3,6 +3,11 @@
 Adapted from: https://gist.github.com/zloeber/9c2d659a2a8f063af26c9ba0285c7e78
 #>
 
+# Hide Windows Ink Workspace button
+Function HideTaskbarInkWorkspaceButton {
+    Write-Host "Hiding Windows Ink Workspace button in taskbar..."
+    REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace" /V PenWorkspaceButtonDesiredVisibility /T REG_DWORD /D 0 /F
+}
 
 # Disable Web Search in Start Menu
 Function DisableWebSearch {

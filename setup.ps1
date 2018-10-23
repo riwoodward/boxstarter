@@ -1,10 +1,19 @@
-# Fresh install script for new PCs using Chocolatey and BoxStarter
-# Robert Woodward, 2018
+<#
+Fresh install script for new PCs using Chocolatey and BoxStarter
+Robert Woodward, 2018
 
-# Manual installs required for: Anaconda3, TexLive, Docker
-# Portable software in Dropbox: Cmder, SublimeText, FilezillaFTP, ArsClip
+Manual installs required for: Anaconda Python, Julia, TexLive, Docker
+Portable software in Dropbox: Cmder, FilezillaFTP, ArsClip
 
-# Usage: Run from command line: "START http://bit.ly/riw_setup" (note: this must open in Edge / IE)
+Usage:
+    Run from command line: "start http://boxstarter.org/package/url?url_of_this_script"
+    (or use the quick link: "start www.bit.ly/riw_setup")
+
+    Or to run with disabled restarts: "start http://boxstarter.org/package/nr/url?url_of_this_script"
+
+    (note: this must open in Edge / IE)
+
+#>
 
 # Disable user account control temporarily
 Disable-UAC
@@ -34,7 +43,8 @@ $ConfigFunctions = @'
     "UninstallThirdPartyBloat",
     "HideTaskbarSearchBox",
     "HideTaskView",
-    "HideTaskbarPeopleIcon",
+	"HideTaskbarPeopleIcon",
+	"HideTaskbarInkWorkspaceButton",
     "UnpinStartMenuTiles",
     "UnpinTaskbarIcons",
     "RemoveDefaultPrinters",
@@ -53,8 +63,7 @@ $ChocoInstalls = @(
 	'7zip.install',
 	# Media
 	'imagemagick.app',
-	'inkscape', 
-	'picasa',
+	'inkscape',
 	'vlc',
 	'jpegview',
 	'spotify',
@@ -63,20 +72,22 @@ $ChocoInstalls = @(
 	'sumatrapdf.install',
 	'texstudio',
 	'ghostscript.app',
-	'mendeley', 
+	'mendeley',
 	# Development
 	'git --params "/GitAndUnixToolsOnPath /NoAutoCrlf"',
 	'vscode',
-	'heroku-cli', 
+	'heroku-cli',
 	'strawberryperl',
 	# Misc
-	'silverlight', 
-	'qttabbar', 
-	'speccy', 
-	'autohotkey', 
-	'windirstat', 
+	'silverlight',
+	'qttabbar',
+	'speccy',
+	'autohotkey',
+	'windirstat',
 	'everything',
-	'google-backup-and-sync'
+	'google-backup-and-sync',
+	# Install Wox (but reject Python3 dependency since we'll use Anaconda)
+	'--ignore-dependencies wox'
 )
 
 
@@ -91,7 +102,15 @@ foreach ($app in $ChocoInstalls) {
     choco install -y $app
 }
 
+# Enable Windows Subsystem Linux
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+# Enaable SSH agent for key authentication
+Set-Service -name "ssh-agent" -startuptype "automatic"
+
  # Re-enable user account control
 Enable-UAC
 
+Write-Host -ForegroundColor:Green "****************************************"
 Write-Host -ForegroundColor:Green "Installation and configuration complete!"
+Write-Host -ForegroundColor:Green "****************************************"
