@@ -1,6 +1,6 @@
-rem RIW config script for new Win10 PCs
+rem RIW config script for new Windows PCs
 rem Run script with admin privileges, after Dropbox has synced Apps folder
-rem Quick link: http://bit.ly/riw_config
+rem Quick link: http://bit.ly/riw_config_script
 
 rem Set system environmental variables
 setx EDITOR "C:\Program Files\Microsoft VS Code\Code.exe"

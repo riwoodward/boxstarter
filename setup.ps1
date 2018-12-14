@@ -76,7 +76,7 @@ $ChocoInstalls = @(
 	# Development
 	'git --params "/GitAndUnixToolsOnPath /NoAutoCrlf"',
 	'vscode',
-	'heroku-cli',
+	# 'heroku-cli',
 	'strawberryperl',
 	# Misc
 	'silverlight',
@@ -104,6 +104,9 @@ foreach ($app in $ChocoInstalls) {
 
 # Enable Windows Subsystem Linux
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+# Clear desktop
+Get-ChildItem $env:USERPROFILE\Desktop\*.lnk|ForEach-Object { Remove-Item $_ }
 
 # Enaable SSH agent for key authentication
 Set-Service -name "ssh-agent" -startuptype "automatic"
