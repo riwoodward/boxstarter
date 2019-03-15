@@ -2,8 +2,8 @@
 Fresh install script for new PCs using Chocolatey and BoxStarter
 Robert Woodward, 2018
 
-Manual installs required for: Anaconda Python, Julia, TexLive, Docker
-Portable software in Dropbox: Cmder, FilezillaFTP, ArsClip
+Manual installs required for: Anaconda Python, Julia, TexLive, Docker, VS Build Tools
+Portable software in Dropbox: FilezillaFTP, ArsClip
 
 Usage:
     Run from command line: "start http://boxstarter.org/package/url?url_of_this_script"
@@ -54,7 +54,9 @@ $ConfigFunctions = @'
 
 # Chocolatey packages to install
 $ChocoInstalls = @(
+	'chocolatey',
 	# Basics
+	'cmder',
     'firefox',
 	'googlechrome',
 	'skype',
@@ -76,8 +78,8 @@ $ChocoInstalls = @(
 	# Development
 	'git --params "/GitAndUnixToolsOnPath /NoAutoCrlf"',
 	'vscode',
-	# 'heroku-cli',
 	'strawberryperl',
+	'nodejs',
 	# Misc
 	'silverlight',
 	'qttabbar',
@@ -111,7 +113,7 @@ Get-ChildItem $env:USERPROFILE\Desktop\*.lnk|ForEach-Object { Remove-Item $_ }
 # Enaable SSH agent for key authentication
 Set-Service -name "ssh-agent" -startuptype "automatic"
 
- # Re-enable user account control
+# Re-enable user account control
 Enable-UAC
 
 Write-Host -ForegroundColor:Green "****************************************"

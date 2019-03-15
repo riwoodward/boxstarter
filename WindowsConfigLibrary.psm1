@@ -187,7 +187,8 @@ Function UninstallMsftBloat {
         "Microsoft.WindowsFeedbackHub",
         "Microsoft.MinecraftUWP",
         "Microsoft.MicrosoftPowerBIForWindows",
-        "Microsoft.MSPaint"
+        "Microsoft.MSPaint",
+        "Microsoft.ScreenSketch"
     );
 
     foreach ($app in $applicationList) {
