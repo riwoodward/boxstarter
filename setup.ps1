@@ -1,6 +1,6 @@
 <#
 Fresh install script for new PCs using Chocolatey and BoxStarter
-Robert Woodward, 2018
+Robert Woodward, 2019
 
 Manual installs required for: Anaconda Python, Julia, TexLive, Docker, VS Build Tools
 Portable software in Dropbox: FilezillaFTP, ArsClip
@@ -61,7 +61,6 @@ $ChocoInstalls = @(
 	'googlechrome',
 	'skype',
 	'dropbox',
-	'teamviewer',
 	'7zip.install',
 	# Media
 	'imagemagick.app',
@@ -78,8 +77,9 @@ $ChocoInstalls = @(
 	# Development
 	'git --params "/GitAndUnixToolsOnPath /NoAutoCrlf"',
 	'vscode',
-	'strawberryperl',
+	# 'strawberryperl',
 	'nodejs',
+	'msys2'
 	# Misc
 	'silverlight',
 	'qttabbar',

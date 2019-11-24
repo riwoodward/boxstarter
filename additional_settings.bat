@@ -12,7 +12,7 @@ git config --global user.name "Robert Woodward"
 git config --global user.email r.i.woodward@gmail.com
 
 rem Default .ahk files to AutoHotKey
-FTYPE AHKFile="C:\Program Files\AutoHotkey\AutoHotkey.exe" "%1"
+FTYPE AHKFile="C:\Program Files\AutoHotkey\AutoHotkeyU64.exe" "%1"
 ASSOC .ahk=AHKFile
 
 rem Copy AutoHotKey scripts into Windows startup folder
@@ -20,6 +20,3 @@ powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%APPDATA%\Microso
 
 rem Add ArsClip in Dropbox to run on load
 powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\ArsClip.lnk');$s.TargetPath='C:\Dropbox\Apps\arsclip\ArsClip.exe';$s.Save()"
-
-rem Sync dotfiles from Dropbox to local machine using symlinks
-mklink /D %USERPROFILE%\.ssh C:\Dropbox\Apps\.ssh
